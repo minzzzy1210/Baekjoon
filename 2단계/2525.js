@@ -8,17 +8,16 @@ const [a, b] = input[0].split(' ').map(Number);
 const c = +input[1];
 
 const solution = (a, b, c) => {
-  const addMinutes = b + c;
-
-  if (addMinutes < 60) {
-    return `${a} ${b + c}`;
+  const plusMinutes = b + c;
+  if (plusMinutes < 60) {
+    return `${a} ${plusMinutes}`;
   }
 
-  const realMinutes = addMinutes % 60;
-  const plusHour = a + Math.trunc(addMinutes / 60);
-  const realHour = plusHour % 24;
+  const plusHour = a + Math.trunc(plusMinutes / 60);
+  const calculatedHour = plusHour % 24;
+  const calculatedMinutes = plusMinutes % 60;
 
-  return `${realHour} ${realMinutes}`;
+  return `${calculatedHour} ${calculatedMinutes}`;
 };
 
 console.log(solution(a, b, c));
